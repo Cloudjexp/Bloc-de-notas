@@ -20,7 +20,7 @@ Visual Studio
 
 ## Instalación
 1. Clona el repositorio:
- Git clone https://github.com/Cloudjexp/Bloc-de-notas
+ git clone https://github.com/Cloudjexp/Bloc-de-notas
 2. Abre el archivo de solución (.sln) con **Visual Stuido.**
 3. Restaurar las dependencias si es necesario.
 4. Compila y ejecuta el proyecto
