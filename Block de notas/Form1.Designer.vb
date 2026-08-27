@@ -104,34 +104,34 @@ Partial Class frmBlocNotas
         ' 
         mnuNuevo.Name = "mnuNuevo"
         mnuNuevo.ShortcutKeys = Keys.Control Or Keys.N
-        mnuNuevo.Size = New Size(159, 22)
+        mnuNuevo.Size = New Size(180, 22)
         mnuNuevo.Text = "&Nuevo"
         ' 
         ' mnuAbrir
         ' 
         mnuAbrir.Name = "mnuAbrir"
         mnuAbrir.ShortcutKeys = Keys.Control Or Keys.O
-        mnuAbrir.Size = New Size(159, 22)
+        mnuAbrir.Size = New Size(180, 22)
         mnuAbrir.Text = "&Abrir"
         ' 
         ' mnuGuardar
         ' 
         mnuGuardar.Name = "mnuGuardar"
         mnuGuardar.ShortcutKeys = Keys.Control Or Keys.S
-        mnuGuardar.Size = New Size(159, 22)
+        mnuGuardar.Size = New Size(180, 22)
         mnuGuardar.Text = "&Guardar"
         ' 
         ' mnuGuardarComo
         ' 
         mnuGuardarComo.Name = "mnuGuardarComo"
-        mnuGuardarComo.Size = New Size(159, 22)
+        mnuGuardarComo.Size = New Size(180, 22)
         mnuGuardarComo.Text = "Guardar &como..."
         ' 
         ' mnuSalir
         ' 
         mnuSalir.Name = "mnuSalir"
         mnuSalir.ShortcutKeys = Keys.Control Or Keys.F4
-        mnuSalir.Size = New Size(159, 22)
+        mnuSalir.Size = New Size(180, 22)
         mnuSalir.Text = "Salir"
         ' 
         ' mnuEdicion

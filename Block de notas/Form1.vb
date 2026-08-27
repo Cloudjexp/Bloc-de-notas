@@ -255,4 +255,7 @@ Public Class frmBlocNotas
         stsEstado.Text = "Guardado correctamente"
     End Sub
 
+    Private Sub dlgAbrir_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dlgAbrir.FileOk
+
+    End Sub
 End Class
