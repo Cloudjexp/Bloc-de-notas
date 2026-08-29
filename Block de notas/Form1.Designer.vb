@@ -63,6 +63,8 @@ Partial Class frmBlocNotas
         ToolStripSeparator3 = New ToolStripSeparator()
         tscbFuente = New ToolStripComboBox()
         tscbTamano = New ToolStripComboBox()
+        ToolStripSeparator4 = New ToolStripSeparator()
+        tstbBuscar = New ToolStripTextBox()
         rtbDocumento = New RichTextBox()
         cmsTexto = New ContextMenuStrip(components)
         cmsCortar = New ToolStripMenuItem()
@@ -81,6 +83,7 @@ Partial Class frmBlocNotas
         dlgFuente = New FontDialog()
         dlgColor = New ColorDialog()
         tmrReloj = New Timer(components)
+        ToolStripButton1 = New ToolStripButton()
         mnuPrincipal.SuspendLayout()
         tsPrincipal.SuspendLayout()
         cmsTexto.SuspendLayout()
@@ -256,7 +259,7 @@ Partial Class frmBlocNotas
         ' 
         tsPrincipal.GripStyle = ToolStripGripStyle.Hidden
         tsPrincipal.ImageScalingSize = New Size(20, 20)
-        tsPrincipal.Items.AddRange(New ToolStripItem() {tsbNuevo, tsbAbrir, tsbGuardar, ToolStripSeparator1, tsbCortar, tsbCopiar, tsbPegar, ToolStripSeparator2, tsbNegrita, tsbCursiva, tsbSubrayado, ToolStripSeparator3, tscbFuente, tscbTamano})
+        tsPrincipal.Items.AddRange(New ToolStripItem() {tsbNuevo, tsbAbrir, tsbGuardar, ToolStripSeparator1, tsbCortar, tsbCopiar, tsbPegar, ToolStripSeparator2, tsbNegrita, tsbCursiva, tsbSubrayado, ToolStripSeparator3, tscbFuente, tscbTamano, ToolStripSeparator4, tstbBuscar, ToolStripButton1})
         tsPrincipal.Location = New Point(0, 30)
         tsPrincipal.Name = "tsPrincipal"
         tsPrincipal.Size = New Size(914, 32)
@@ -373,6 +376,19 @@ Partial Class frmBlocNotas
         tscbTamano.Name = "tscbTamano"
         tscbTamano.Size = New Size(121, 32)
         ' 
+        ' ToolStripSeparator4
+        ' 
+        ToolStripSeparator4.Name = "ToolStripSeparator4"
+        ToolStripSeparator4.Size = New Size(6, 32)
+        ' 
+        ' tstbBuscar
+        ' 
+        tstbBuscar.AccessibleDescription = "Buscar"
+        tstbBuscar.BackColor = Color.FromArgb(CByte(128), CByte(128), CByte(255))
+        tstbBuscar.ForeColor = SystemColors.Desktop
+        tstbBuscar.Name = "tstbBuscar"
+        tstbBuscar.Size = New Size(100, 32)
+        ' 
         ' rtbDocumento
         ' 
         rtbDocumento.ContextMenuStrip = cmsTexto
@@ -486,6 +502,18 @@ Partial Class frmBlocNotas
         tmrReloj.Enabled = True
         tmrReloj.Interval = 1000
         ' 
+        ' ToolStripButton1
+        ' 
+        ToolStripButton1.AutoSize = False
+        ToolStripButton1.BackColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
+        ToolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image
+        ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), Image)
+        ToolStripButton1.ImageTransparentColor = Color.Magenta
+        ToolStripButton1.Margin = New Padding(0)
+        ToolStripButton1.Name = "ToolStripButton1"
+        ToolStripButton1.Size = New Size(28, 28)
+        ToolStripButton1.Text = "ToolStripButton1"
+        ' 
         ' frmBlocNotas
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -571,5 +599,8 @@ Partial Class frmBlocNotas
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents tscbFuente As ToolStripComboBox
     Friend WithEvents tscbTamano As ToolStripComboBox
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents tstbBuscar As ToolStripTextBox
+    Friend WithEvents ToolStripButton1 As ToolStripButton
 
 End Class

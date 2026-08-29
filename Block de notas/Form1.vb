@@ -256,7 +256,51 @@ Public Class frmBlocNotas
         stsEstado.Text = "Guardado correctamente"
     End Sub
 
-    Private Sub ToolStripSeparator1_Click(sender As Object, e As EventArgs) Handles ToolStripSeparator1.Click
+    Private Sub tstbBuscar_TextChanged(sender As Object, e As EventArgs) Handles tstbBuscar.TextChanged
+        Dim posicionOriginal As Integer = rtbDocumento.SelectionStart
+        Dim longitudOriginal As Integer = rtbDocumento.SelectionLength
 
+        rtbDocumento.SelectAll()
+        rtbDocumento.SelectionBackColor = Color.White
+        rtbDocumento.SelectionColor = Color.Black
+
+        Dim textoABuscar As String = tstbBuscar.Text.Trim()
+        If String.IsNullOrEmpty(textoABuscar) Then
+            rtbDocumento.Select(posicionOriginal, 0)
+            Exit Sub
+        End If
+
+        Dim indice As Integer = 0
+
+        indice = rtbDocumento.Find(textoABuscar, indice, RichTextBoxFinds.None)
+
+        Dim seEncontroAlgo As Boolean = False
+        Dim primeraPosicionEncontrada As Integer = -1
+
+        Do Until indice < 0
+            seEncontroAlgo = True
+            If primeraPosicionEncontrada = -1 Then
+                primeraPosicionEncontrada = indice
+            End If
+
+            rtbDocumento.SelectionBackColor = Color.Yellow
+            rtbDocumento.SelectionColor = Color.Black
+
+            Dim siguienteInicio As Integer = indice + textoABuscar.Length
+
+            If siguienteInicio >= rtbDocumento.TextLength Then Exit Do
+
+            indice = rtbDocumento.Find(textoABuscar, siguienteInicio, RichTextBoxFinds.None)
+        Loop
+
+        If seEncontroAlgo Then
+            rtbDocumento.Select(primeraPosicionEncontrada, textoABuscar.Length)
+            rtbDocumento.ScrollToCaret()
+        Else
+            rtbDocumento.Select(posicionOriginal, longitudOriginal)
+        End If
+
+        tstbBuscar.Focus()
     End Sub
+
 End Class
