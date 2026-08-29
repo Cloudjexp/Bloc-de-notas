@@ -125,37 +125,37 @@ Public Class frmBlocNotas
         GuardarDocumento(False)
     End Sub
 
-    Private Sub tsbCortar_Click(sender As Object, e As EventArgs) Handles tsbCortar.Click
-        rtbDocumento.Cut()
+    Private Sub tsbCortar_Click(sender As Object, e As EventArgs)
+        rtbDocumento.Cut
     End Sub
 
-    Private Sub tsbCopiar_Click(sender As Object, e As EventArgs) Handles tsbCopiar.Click
-        rtbDocumento.Copy()
+    Private Sub tsbCopiar_Click(sender As Object, e As EventArgs)
+        rtbDocumento.Copy
     End Sub
 
-    Private Sub tsbPegar_Click(sender As Object, e As EventArgs) Handles tsbPegar.Click
-        rtbDocumento.Paste()
+    Private Sub tsbPegar_Click(sender As Object, e As EventArgs)
+        rtbDocumento.Paste
     End Sub
 
-    Private Sub tsbNegrita_Click(sender As Object, e As EventArgs) Handles tsbNegrita.Click
+    Private Sub tsbNegrita_Click(sender As Object, e As EventArgs)
         AplicarEstiloFuente(FontStyle.Bold)
     End Sub
 
-    Private Sub tsbCursiva_Click(sender As Object, e As EventArgs) Handles tsbCursiva.Click
+    Private Sub tsbCursiva_Click(sender As Object, e As EventArgs)
         AplicarEstiloFuente(FontStyle.Italic)
     End Sub
 
-    Private Sub tsbSubrayado_Click(sender As Object, e As EventArgs) Handles tsbSubrayado.Click
+    Private Sub tsbSubrayado_Click(sender As Object, e As EventArgs)
         AplicarEstiloFuente(FontStyle.Underline)
     End Sub
 
-    Private Sub tscbFuente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tscbFuente.SelectedIndexChanged
-        Dim tamano As Single = rtbDocumento.SelectionFont.Size
+    Private Sub tscbFuente_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Dim tamano = rtbDocumento.SelectionFont.Size
         rtbDocumento.SelectionFont = New Font(tscbFuente.Text, tamano, rtbDocumento.SelectionFont.Style)
     End Sub
 
-    Private Sub tscbTamano_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tscbTamano.SelectedIndexChanged
-        Dim tam As Single = Convert.ToSingle(tscbTamano.Text)
+    Private Sub tscbTamano_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Dim tam = Convert.ToSingle(tscbTamano.Text)
         rtbDocumento.SelectionFont = New Font(rtbDocumento.SelectionFont.FontFamily, tam, rtbDocumento.SelectionFont.Style)
     End Sub
 
@@ -256,4 +256,7 @@ Public Class frmBlocNotas
         stsEstado.Text = "Guardado correctamente"
     End Sub
 
+    Private Sub ToolStripSeparator1_Click(sender As Object, e As EventArgs) Handles ToolStripSeparator1.Click
+
+    End Sub
 End Class
