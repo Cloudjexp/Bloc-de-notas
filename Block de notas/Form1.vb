@@ -1,4 +1,4 @@
-﻿Imports System.IO
+Imports System.IO
 Imports System.Drawing
 
 Public Class frmBlocNotas
@@ -218,12 +218,8 @@ Public Class frmBlocNotas
     End Sub
 
     Private Sub NuevoDocumento()
-        If documentoModificado Then
-            Dim r = MessageBox.Show("¿Desea guardar los cambios antes de continuar?",
-                                 "Bloc de Notas", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
-            If r = DialogResult.Cancel Then Exit Sub
-            If r = DialogResult.Yes Then GuardarDocumento(False)
-        End If
+        ' Comprueba si hay cambios no guardados antes de crear un nuevo documento'
+        If Not ConfirmarGuardarCambios() Then Exit Sub
         rtbDocumento.Clear()
         rutaActual = String.Empty
         documentoModificado = False
@@ -232,6 +228,8 @@ Public Class frmBlocNotas
     End Sub
 
     Private Sub AbrirDocumento()
+        ' Comprueba cambios que no se han guardado antes de abrir un nuevo documento'
+        If Not ConfirmarGuardarCambios() Then Exit Sub
         If dlgAbrir.ShowDialog() = DialogResult.OK Then
             rtbDocumento.LoadFile(dlgAbrir.FileName, RichTextBoxStreamType.PlainText)
             rutaActual = dlgAbrir.FileName
@@ -241,18 +239,46 @@ Public Class frmBlocNotas
         End If
     End Sub
 
-    Private Sub GuardarDocumento(forzarDialogo As Boolean)
+    ' GuardarDocumento cambiado a función que devuelve Boolean para indicar exito o cancelación
+    Private Function GuardarDocumento(forzarDialogo As Boolean) As Boolean
         If String.IsNullOrEmpty(rutaActual) OrElse forzarDialogo Then
             If dlgGuardar.ShowDialog() = DialogResult.OK Then
                 rutaActual = dlgGuardar.FileName
             Else
-                Exit Sub
+                Return False
             End If
         End If
-        rtbDocumento.SaveFile(rutaActual, RichTextBoxStreamType.PlainText)
-        documentoModificado = False
-        Me.Text = $"Bloc de Notas VB.NET - [{Path.GetFileName(rutaActual)}]"
-        stsEstado.Text = "Guardado correctamente"
+        Try
+            rtbDocumento.SaveFile(rutaActual, RichTextBoxStreamType.PlainText)
+            documentoModificado = False
+            Me.Text = $"Bloc de Notas VB.NET - [{Path.GetFileName(rutaActual)}]"
+            stsEstado.Text = "Guardado correctamente"
+            Return True
+        Catch ex As Exception
+            MessageBox.Show($"Error al guardar el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
+
+    ' Nueva función: muestra un mensaje de confirmacion
+    Private Function ConfirmarGuardarCambios() As Boolean
+        If Not documentoModificado Then Return True
+        Dim msg As String = "El documento ha sido modificado. ¿Desea guardar los cambios?"
+        Dim r As DialogResult = MessageBox.Show(msg, "Guardar cambios", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning)
+        If r = DialogResult.Yes Then
+            Return GuardarDocumento(False)
+        ElseIf r = DialogResult.No Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    ' evita cierre si usuario cancela al confirmar guardar cambios
+    Private Sub frmBlocNotas_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If Not ConfirmarGuardarCambios() Then
+            e.Cancel = True
+        End If
     End Sub
 
     ' Funcion para buscar en el editor de texto.
@@ -302,5 +328,7 @@ Public Class frmBlocNotas
 
         tstbBuscar.Focus()
     End Sub
+    Private Sub dlgAbrir_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dlgAbrir.FileOk
 
+    End Sub
 End Class
