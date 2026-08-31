@@ -1,7 +1,6 @@
 ﻿Imports System.IO
 Imports System.Drawing
 
-' I like black coocks
 Public Class frmBlocNotas
 
     Private rutaActual As String = String.Empty
@@ -256,7 +255,11 @@ Public Class frmBlocNotas
         stsEstado.Text = "Guardado correctamente"
     End Sub
 
+<<<<<<< HEAD
     Private Sub dlgAbrir_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dlgAbrir.FileOk
 
     End Sub
 End Class
+=======
+End Class
+>>>>>>> d6e8e79dc383d532b9b8fd8597960b006dee8c05
