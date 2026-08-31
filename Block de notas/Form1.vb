@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Drawing
+
 Public Class frmBlocNotas
 
     Private rutaActual As String = String.Empty
@@ -123,37 +124,37 @@ Public Class frmBlocNotas
         GuardarDocumento(False)
     End Sub
 
-    Private Sub tsbCortar_Click(sender As Object, e As EventArgs)
-        rtbDocumento.Cut
+    Private Sub tsbCortar_Click(sender As Object, e As EventArgs) Handles tsbCortar.Click
+        rtbDocumento.Cut()
     End Sub
 
-    Private Sub tsbCopiar_Click(sender As Object, e As EventArgs)
-        rtbDocumento.Copy
+    Private Sub tsbCopiar_Click(sender As Object, e As EventArgs) Handles tsbCopiar.Click
+        rtbDocumento.Copy()
     End Sub
 
-    Private Sub tsbPegar_Click(sender As Object, e As EventArgs)
-        rtbDocumento.Paste
+    Private Sub tsbPegar_Click(sender As Object, e As EventArgs) Handles tsbPegar.Click
+        rtbDocumento.Paste()
     End Sub
 
-    Private Sub tsbNegrita_Click(sender As Object, e As EventArgs)
+    Private Sub tsbNegrita_Click(sender As Object, e As EventArgs) Handles tsbNegrita.Click
         AplicarEstiloFuente(FontStyle.Bold)
     End Sub
 
-    Private Sub tsbCursiva_Click(sender As Object, e As EventArgs)
+    Private Sub tsbCursiva_Click(sender As Object, e As EventArgs) Handles tsbCursiva.Click
         AplicarEstiloFuente(FontStyle.Italic)
     End Sub
 
-    Private Sub tsbSubrayado_Click(sender As Object, e As EventArgs)
+    Private Sub tsbSubrayado_Click(sender As Object, e As EventArgs) Handles tsbSubrayado.Click
         AplicarEstiloFuente(FontStyle.Underline)
     End Sub
 
-    Private Sub tscbFuente_SelectedIndexChanged(sender As Object, e As EventArgs)
-        Dim tamano = rtbDocumento.SelectionFont.Size
+    Private Sub tscbFuente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tscbFuente.SelectedIndexChanged
+        Dim tamano As Single = rtbDocumento.SelectionFont.Size
         rtbDocumento.SelectionFont = New Font(tscbFuente.Text, tamano, rtbDocumento.SelectionFont.Style)
     End Sub
 
-    Private Sub tscbTamano_SelectedIndexChanged(sender As Object, e As EventArgs)
-        Dim tam = Convert.ToSingle(tscbTamano.Text)
+    Private Sub tscbTamano_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tscbTamano.SelectedIndexChanged
+        Dim tam As Single = Convert.ToSingle(tscbTamano.Text)
         rtbDocumento.SelectionFont = New Font(rtbDocumento.SelectionFont.FontFamily, tam, rtbDocumento.SelectionFont.Style)
     End Sub
 
@@ -254,6 +255,7 @@ Public Class frmBlocNotas
         stsEstado.Text = "Guardado correctamente"
     End Sub
 
+    ' Funcion para buscar en el editor de texto.
     Private Sub tstbBuscar_TextChanged(sender As Object, e As EventArgs) Handles tstbBuscar.TextChanged
         Dim posicionOriginal As Integer = rtbDocumento.SelectionStart
         Dim longitudOriginal As Integer = rtbDocumento.SelectionLength

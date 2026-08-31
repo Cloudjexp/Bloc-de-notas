@@ -65,6 +65,7 @@ Partial Class frmBlocNotas
         tscbTamano = New ToolStripComboBox()
         ToolStripSeparator4 = New ToolStripSeparator()
         tstbBuscar = New ToolStripTextBox()
+        ToolStripButton1 = New ToolStripButton()
         rtbDocumento = New RichTextBox()
         cmsTexto = New ContextMenuStrip(components)
         cmsCortar = New ToolStripMenuItem()
@@ -83,7 +84,6 @@ Partial Class frmBlocNotas
         dlgFuente = New FontDialog()
         dlgColor = New ColorDialog()
         tmrReloj = New Timer(components)
-        ToolStripButton1 = New ToolStripButton()
         mnuPrincipal.SuspendLayout()
         tsPrincipal.SuspendLayout()
         cmsTexto.SuspendLayout()
@@ -389,6 +389,18 @@ Partial Class frmBlocNotas
         tstbBuscar.Name = "tstbBuscar"
         tstbBuscar.Size = New Size(100, 32)
         ' 
+        ' ToolStripButton1
+        ' 
+        ToolStripButton1.AutoSize = False
+        ToolStripButton1.BackColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
+        ToolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image
+        ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), Image)
+        ToolStripButton1.ImageTransparentColor = Color.Magenta
+        ToolStripButton1.Margin = New Padding(0)
+        ToolStripButton1.Name = "ToolStripButton1"
+        ToolStripButton1.Size = New Size(28, 28)
+        ToolStripButton1.Text = "ToolStripButton1"
+        ' 
         ' rtbDocumento
         ' 
         rtbDocumento.ContextMenuStrip = cmsTexto
@@ -501,18 +513,6 @@ Partial Class frmBlocNotas
         ' 
         tmrReloj.Enabled = True
         tmrReloj.Interval = 1000
-        ' 
-        ' ToolStripButton1
-        ' 
-        ToolStripButton1.AutoSize = False
-        ToolStripButton1.BackColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
-        ToolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image
-        ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), Image)
-        ToolStripButton1.ImageTransparentColor = Color.Magenta
-        ToolStripButton1.Margin = New Padding(0)
-        ToolStripButton1.Name = "ToolStripButton1"
-        ToolStripButton1.Size = New Size(28, 28)
-        ToolStripButton1.Text = "ToolStripButton1"
         ' 
         ' frmBlocNotas
         ' 
