@@ -1,7 +1,6 @@
 ﻿Imports System.IO
 Imports System.Drawing
 
-' I like black coocks
 Public Class frmBlocNotas
 
     Private rutaActual As String = String.Empty
