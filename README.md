@@ -2,7 +2,9 @@
 Aplicación de **escritorio** de un bloc de notas desarrollada con **Visual Basic.NET y Windows Forms**.
 
 El proyecto Permite crear, editar y gestionar, editar y gestionar texto mediante una interfaz gráfica sencilla e intuitiva.
+## 📸 Capturas de pantalla
 
+![Interfaz principal](screenshots/Captura%20de%20pantalla%202026-08-31%20135719.png)
 ## ✦ Características
  ▸Crear y editar documentos de texto.
  ▸Abrir y guardar archivos.
