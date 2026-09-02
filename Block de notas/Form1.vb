@@ -108,7 +108,7 @@ Public Class frmBlocNotas
     End Sub
 
     Private Sub mnuAcercaDe_Click(sender As Object, e As EventArgs) Handles mnuAcercaDe.Click
-        MessageBox.Show("Bloc de Notas VB.NET" & vbCrLf & "Ejemplo académico - MenuStrip/ToolStrip/StatusStrip",
+        MessageBox.Show("Bloc de Notas VB.NET" & vbCrLf & "Desarrolado por Josué Morales y Lesther Velasquez",
                      "Acerca de", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
