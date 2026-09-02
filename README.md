@@ -32,5 +32,5 @@ El proyecto Permite crear, editar y gestionar, editar y gestionar texto mediante
 Se agregarán nuevas funciones y mejoras a futuro
 
 ## Licencia
-Este proyecto puede utilizarse con fines educativos y de aprendizaje.
+Este proyecto puede utilizarse con cualquier fin, incluso comercial sin ningun tipo de mención a los creadores.
 
