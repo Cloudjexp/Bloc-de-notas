@@ -36,4 +36,5 @@ Este proyecto puede utilizarse con cualquier fin, incluso comercial sin ningun t
 
 Proyecto realizado por:
  ▸Lesther Javier Velasquez Laguna.
+ 
  ▸Josue Damir Morales Ordonez.
